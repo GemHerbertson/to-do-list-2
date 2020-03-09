@@ -3,7 +3,6 @@ const input = document.getElementById("taskInput");
 const button = document.getElementById("addBtn");
 let list = document.getElementsByTagName("ul")[0];
 
-
 // functions
 button.addEventListener("click", () => {
     if (input.value === "") {
@@ -15,6 +14,14 @@ button.addEventListener("click", () => {
         input.value = ""; 
     } 
 });
+
+list.addEventListener("click", (event) => {
+    if(event.target.tagName == "LI") {
+        let li = event.target;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+    }
+})
 
 
 
