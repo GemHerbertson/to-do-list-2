@@ -1,10 +1,10 @@
 // html variables
 const input = document.getElementById("taskInput");
-const button = document.getElementById("addBtn");
+const addButton = document.getElementById("addBtn");
 let list = document.getElementsByTagName("ul")[0];
 
 // functions
-button.addEventListener("click", () => {
+addButton.addEventListener("click", () => {
     if (input.value === "") {
         alert("Oops, you forgot something!");
     } else {
@@ -12,10 +12,15 @@ button.addEventListener("click", () => {
         listItem.textContent = input.value;
         list.appendChild(listItem);
         input.value = ""; 
+
+        let deleteButton = document.createElement("button");
+        listItem.appendChild(deleteButton);
     } 
 });
 
-list.addEventListener("click", (event) => {
+
+
+deleteButton.addEventListener("click", (event) => {
     if(event.target.tagName == "LI") {
         let li = event.target;
         let ul = li.parentNode;
@@ -23,5 +28,10 @@ list.addEventListener("click", (event) => {
     }
 })
 
-
-
+// list.addEventListener("click", (event) => {
+//     if(event.target.tagName == "LI") {
+//         let li = event.target;
+//         let ul = li.parentNode;
+//         ul.removeChild(li);
+//     }
+// })
